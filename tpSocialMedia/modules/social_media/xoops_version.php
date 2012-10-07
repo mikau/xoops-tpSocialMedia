@@ -24,10 +24,11 @@ $modversion['license']     = 'GNU GPL v2 see LISENCE';
 $modversion['image']       = 'public/images/module_icon.png';
 $modversion['nice_image']  = 'public/images/module_icon_square.png';
 $modversion['dirname']     = $basename;
-$modversion['read_any'] = true;
 $modversion['cube_style'] = true;
 
+// Menu
 $modversion['hasMain'] = 0;
+$modversion['read_any'] = true;
 
 $modversion['hasAdmin']   = 1;
 $modversion['adminindex'] = 'admin/index.php';
@@ -39,7 +40,18 @@ $modversion['hasNotification'] = 0;
 
 $modversion['hasComments'] = 0;
 
-
+/*
 $modversion['onInstall']   = 'Platform/Installer.php';
 $modversion['onUpdate']    = 'Platform/Installer.php';
 $modversion['onUninstall'] = 'Platform/Installer.php';
+*/
+
+// Block
+$modversion['blocks'][1]['file'] = "social_media_login.php";
+$modversion['blocks'][1]['name'] = 'Social Media Login none';
+$modversion['blocks'][1]['description'] = 'Social Media Login Button';
+$modversion['blocks'][1]['show_func'] = 'b_social_media_login_show';
+$modversion['blocks'][1]['template'] = 'social_media_block_login.html';
+$modversion['blocks'][1]['visible_any'] = true;
+$modversion['blocks'][1]['show_all_module'] = true;
+
