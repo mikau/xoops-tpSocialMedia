@@ -1,0 +1,8 @@
+<{* SocialMediaモジュール *}>
+<{foreach from=$block.socialLoginLinks item="link"}>
+	<{if $link.image}>
+		<div style="margin:3px 0px;"><a href="<{$link.url}>"><img src="<{$link.image}>" alt="<{$link.title}>"></a></div>
+	<{else}>
+		<div style="margin:3px 0px;"><a href="<{$link.url}>"><{$link.title}></a></div>
+	<{/if}>
+<{/foreach}>
