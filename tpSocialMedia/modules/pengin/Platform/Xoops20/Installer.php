@@ -21,7 +21,12 @@ class Pengin_Platform_Xoops20_Installer
 		function xoops_module_install_'.$dirname.'($module)
 		{
 			$installer = new '.$class.';
-			return $installer->install($module);
+			$ret = $installer->install($module);
+			$extendClass = "InstallerExtend";
+			if(class_exists($extendClass)){
+				$extend = new $extendClass($module);
+			}
+			return $ret;
 		}
 		function xoops_module_update_'.$dirname.'($module, $currentVersion)
 		{

@@ -40,11 +40,10 @@ $modversion['hasNotification'] = 0;
 
 $modversion['hasComments'] = 0;
 
-/*
+
 $modversion['onInstall']   = 'Platform/Installer.php';
 $modversion['onUpdate']    = 'Platform/Installer.php';
 $modversion['onUninstall'] = 'Platform/Installer.php';
-*/
 
 // Block
 $modversion['blocks'][1]['file'] = "social_media_login.php";

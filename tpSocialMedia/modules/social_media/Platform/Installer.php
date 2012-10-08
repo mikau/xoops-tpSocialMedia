@@ -20,3 +20,29 @@ require_once PENGIN_PATH.'/Pengin.php';
 $pengin =& Pengin::getInstance();
 $installer = $pengin->cms->getInstaller();
 $installer->prepareAPI($dirname);
+
+
+class InstallerExtend
+{
+	var $module;
+	public function __construct($module)
+	{
+		$this->module = $module;
+		$this->_groupPermission();
+	}	
+	private function _groupPermission()
+	{
+		// ログインモジュールなのでゲストにアクセス権限を与える
+		$moduleId = $this->module->getVar('mid');
+		
+		$gperm_handler = xoops_gethandler('groupperm');
+
+		$gperm =& $gperm_handler->create();
+		$gperm->setVar("gperm_groupid", XOOPS_GROUP_ANONYMOUS);
+		$gperm->setVar("gperm_name", "module_read");
+		$gperm->setVar("gperm_modid", 1);
+		$gperm->setVar("gperm_itemid", $moduleId );
+		$gperm_handler->insert($gperm) ;
+		unset($gperm);
+	}
+}
